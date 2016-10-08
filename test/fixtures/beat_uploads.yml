@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  artist: one
+  for_sale: false
+  price: 1.5
+  listens: 1
+  downloads: 1
+  description: MyText
+
+two:
+  artist: two
+  for_sale: false
+  price: 1.5
+  listens: 1
+  downloads: 1
+  description: MyText

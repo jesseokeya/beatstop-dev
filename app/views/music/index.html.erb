@@ -1,0 +1,90 @@
+
+  <section class="vbox">
+    <section>
+      <section class="hbox stretch">
+        <section id="content">
+          <section class="hbox stretch"   style = "background-color: #212F3F">
+            <section >
+              <section class="vbox">
+                <section class="scrollable padder-lg w-f-md" id="bjax-target" style = "background-color: #242526">
+                  <a href="#" class="pull-right text-muted m-t-lg" data-toggle="class:fa-spin" ><i class="icon-refresh i-lg  inline" id="refresh"></i></a>
+                  <h2  style = "color: white" class="font-thin m-b">What's new <span class="musicbar animate inline m-l-sm" style="width:20px;height:20px">
+                    <span class="bar1 a1 bg-primary lter"></span>
+                    <span class="bar2 a2 bg-info lt"></span>
+                    <span class="bar3 a3 bg-success"></span>
+                    <span class="bar4 a4 bg-warning dk"></span>
+                    <span class="bar5 a5 bg-danger dker"></span>
+                  </span></h2>
+                  <div class="row row-sm">
+                  <%Music.all.order(:created_at).limit(12).each do |music|%>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                      <div class="item">
+                        <div class="pos-rlt">
+                          <div class="bottom">
+                          </div>
+                          <div class="item-overlay opacity r r-2x bg-black">
+                            <div class="center text-center m-t-n">
+                              <a onclick='update_music_meta("<%=music.name%>","<%=music.artist.stage_name%>","<%=music.beat.expiring_url(500)%>","<%=music.cover_art.expiring_url(500)%>", "<%=music.id%>")' class="play_music"><i class="icon-control-play i-2x"></i></a>
+                            </div>
+                            <div class="bottom padder m-b-sm">
+                              <a onclick='update_music_meta("<%=music.name%>","<%=music.artist.stage_name%>","<%=music.beat.expiring_url(500)%>","<%=music.cover_art.expiring_url(500)%>", "<%=music.id%>")' class="pull-right">
+                                <i class="fa fa-heart-o"></i>
+                              </a>
+                              <a onclick='update_music_meta("<%=music.name%>","<%=music.artist.stage_name%>","<%=music.beat.expiring_url(500)%>","<%=music.cover_art.expiring_url(500)%>", "<%=music.id%>")'>
+                                <i class="fa fa-plus-circle"></i>
+                              </a>
+                            </div>
+                          </div>
+                          <a onclick='update_music_meta("<%=music.name%>","<%=music.artist.stage_name%>","<%=music.beat.expiring_url(500)%>","<%=music.cover_art.expiring_url(500)%>", "<%=music.id%>")'><img src="<%=music.cover_art.expiring_url(500) %>" style="width:173px; height: 173px;" 
+                          alt="" class="r r-2x img-full"></a>
+                        </div>
+                        <div class="padder-v">
+                          <a onclick='update_music_meta("<%=music.name%>","<%=music.artist.stage_name%>","<%=music.beat.expiring_url(500)%>","<%=music.cover_art.expiring_url(500)%>", "<%=music.id%>")' class="text-ellipsis"><%=music.name%></a>
+                          <a onclick='update_music_meta("<%=music.name%>","<%=music.artist.stage_name%>","<%=music.beat.expiring_url(500)%>","<%=music.cover_art.expiring_url(500)%>", "<%=music.id%>")' class="text-ellipsis text-xs text-muted"><%=music.artist.stage_name%></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+
+                    <% end %>
+                   
+                    
+                     <div class="col-md-5">
+                      <h3 class="font-thin">Top Sounds</h3>
+                      <div class="list-group bg-white list-group-lg no-bg auto">
+                      <%Music.all.order(:listens).limit(5).each_with_index do |music, position| %>
+                      <a href="#" class="list-group-item clearfix">
+                          <span class="pull-right h2 text-muted m-l"><%=position+1%></span>
+                          <span class="pull-left thumb-sm avatar m-r">
+                            <img src="<%=music.cover_art.expiring_url(500) %>" alt="..." style="width:40px; height: 40px;">
+                          </span>
+                          <span class="clear">
+                            <span><%=music.name%></span>
+                            <small class="text-muted clear text-ellipsis">by <%=music.artist.stage_name%></small>
+                          </span>
+                        </a>
+                      <% end %>                          
+                      
+                      </div>
+                    </div>
+                    
+                   
+                  
+                  <div class="row m-t-lg m-b-lg">
+                    <div class="col-sm-6">
+                    </div>
+                    <div class="col-sm-6">
+                    </div>
+                  </div>
+                </section>
+                
+              </section>
+            </section>
+            <!-- side content -->
+            <!-- / side content -->
+          </section>
+          <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
+        </section>
+      </section>
+    </section>    
+  </section>

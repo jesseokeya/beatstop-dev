@@ -1,0 +1,37 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="b-t">
+    <div class="center-block w-xxl w-auto-xs p-y-md text-center">
+      <div class="p-a-md">
+        <div>
+          <a href="#" class="btn btn-block indigo text-white m-b-sm">
+            <i class="fa fa-facebook pull-left"></i>
+            Sign in with Facebook
+          </a>
+        </div>
+        <div class="m-y text-sm">
+          OR
+        </div>
+        <form name="form" action="home.html">
+          <div class="form-group">
+          <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email", required: true%>
+          </div>
+          <div class="form-group">
+              <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class:"form-control", required: true %>
+          </div>      
+          <div class="m-b-md">        
+            <label class="md-check">
+              <input type="checkbox" name= "user[remember_me]"><i class="primary"></i> Keep me signed in
+            </label>
+          </div>
+          <button type="submit" class="btn btn-lg black p-x-lg">Sign in</button>
+        <% end %>
+        <div class="m-y">
+          <a href="/forgot_password" class="_600">Forgot password?</a>
+        </div>
+        <div>
+          Do not have an account? 
+          <a href="/sign_up" class="text-primary _600">Sign up</a>
+        </div>
+      </div>
+    </div>
+  </div>

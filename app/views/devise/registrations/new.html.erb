@@ -1,0 +1,40 @@
+<div class="b-t">
+  <div class="center-block w-xxl w-auto-xs p-y-md text-center">
+    <div class="p-a-md">
+      <div>
+        <a href="#" class="btn btn-block indigo text-white m-b-sm">
+          <i class="fa fa-facebook pull-left"></i>
+          Sign up with Facebook
+        </a>
+      </div>
+      <div class="m-y text-sm">
+        OR
+      </div>
+     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+     <%= content_for :devise_error do %>
+      <%= devise_error_messages! %>
+      <% end %>
+        <div class="form-group">
+         <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email", required: true%>
+        </div>
+        <div class="form-group">
+            <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password", required: true %>
+        </div>
+        <div class="form-group">
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Password Confirmation", required: true %>
+
+        </div>
+        <div class="m-b-md text-sm">
+          <span class="text-muted">By clicking Sign Up, I agree to the</span> 
+          <a href="#">Terms of service</a> 
+          <span class="text-muted">and</span> 
+          <a href="#">Policy Privacy.</a>
+        </div>
+        <%= f.submit "Sign up",class: "btn btn-lg black p-x-lg"%>
+     <% end %>
+      <div class="p-y-lg text-center">
+        <div>Already have an account? <a href="/users/sign_in" class="text-primary _600">Sign in</a></div>
+      </div>
+    </div>
+  </div>
+</div>

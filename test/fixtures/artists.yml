@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  first_name: MyString
+  last_name: MyString
+  stage_name: MyString
+  talent: MyString
+  bio: MyText
+  page_views: 1
+  account_balance: 9.99
+  followers: MyString
+  following: MyString
+  paypal_email: MyString
+  stripe_id: MyString
+  fb_link: MyString
+  twitter: MyString
+  soundclound: MyString
+
+two:
+  user: two
+  first_name: MyString
+  last_name: MyString
+  stage_name: MyString
+  talent: MyString
+  bio: MyText
+  page_views: 1
+  account_balance: 9.99
+  followers: MyString
+  following: MyString
+  paypal_email: MyString
+  stripe_id: MyString
+  fb_link: MyString
+  twitter: MyString
+  soundclound: MyString

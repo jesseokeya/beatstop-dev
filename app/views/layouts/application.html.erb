@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+  	<title>BeatStop - Share your Rhythm</title>
+  	<meta name="description" content="Music, Musician, Bootstrap" />
+  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<link rel="apple-touch-icon" href="<%=image_path 'logo.png' %>">
+  	<link rel="shortcut icon" sizes="196x196" href="<%=image_path 'icon.png'%>">
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="app dk" id="app">
+
+<!-- ############ LAYOUT START-->
+  <!-- content -->
+  <div id="content" class="app-content" role="main">
+    <div class="app-header navbar-md black box-shadow-z1">
+        <div class="navbar" data-pjax>
+              <a data-toggle="collapse" data-target="#navbar" class="navbar-item pull-right hidden-md-up m-r-0 m-l">
+                <i class="material-icons">menu</i>
+              </a>
+              <!-- brand -->
+              <a href="/" class="navbar-brand md">
+              	
+              
+              	<img src="<%=image_path 'logo.png' %>" alt=".">
+              	<span class="hidden-folded inline">Beatstop</span>
+              </a>
+              <!-- / brand -->
+      
+              <!-- nabar right -->
+              <ul class="nav navbar-nav pull-right">
+                <li class="nav-item">
+                <% if user_signed_in? %>
+                <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+                <span class="btn btn-sm rounded primary _600">
+                      Sign out
+                    </span>
+                    <% end %>
+
+                <% else %>
+                  <a href="/sign_up" class="nav-link">
+                    Sign-Up
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/sign_in" class="nav-link">
+                    <span class="btn btn-sm rounded primary _600">
+                      Sign-In
+                    </span>
+                  </a>
+                </li>
+                <% end %>
+              </ul>
+              <!-- / navbar right -->
+      
+              <!-- navbar collapse -->
+              <div class="collapse navbar-toggleable-sm l-h-0 text-center" id="navbar">
+                <!-- link and dropdown -->
+                <ul class="nav navbar-nav nav-md inline text-primary-hover">
+                  <li class="nav-item">
+                    <a href="/about" class="nav-link">
+                      <span class="nav-text">About us</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/music/index.html" class="nav-link">
+                      <span class="nav-text">Web Player</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="/support" class="nav-link">
+                      <span class="nav-text">Support</span>
+                    </a>
+                  </li>
+                </ul>
+                <!-- / link and dropdown -->
+              </div>
+              <!-- / navbar collapse -->
+        </div>
+    </div>
+    <div class="app-body">
+<%= yield %>
+
+</div>
+    <div class="white dk pos-rlt">
+      <div class="p-a-md">
+        <div class="footer p-y-md text-primary-hover">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="clearfix m-b-lg">
+                        <!-- brand -->
+                        <a href="/" class="navbar-brand md">
+                        
+                            <img src="<%=image_path 'logo.png'%>" alt=".">
+                            <span class="hidden-folded inline">Beatstop</span>
+                        </a>
+                        <!-- / brand -->
+                    </div>
+                </div>
+                <div class="col-sm-2 col-xs-6">
+                    <h6 class="text-u-c m-b text-muted">About</h6>
+                    <div class="m-b-md">
+                        <ul class="nav l-h-2x _600">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Mobile apps</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Jobs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-xs-6">
+                    <h6 class="text-u-c m-b text-muted">Links</h6>
+                    <div class="m-b-md">
+                        <ul class="nav l-h-2x _600">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Help</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Support</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Legal</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Copyright</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2 col-xs-6">
+                    <h6 class="text-u-c m-b text-muted">Connect</h6>
+                    <div class="m-b-md">
+                        <ul class="nav l-h-2x _600">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Facebook</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Twitter</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Google+</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <h6 class="text-u-c m-b text-muted">Subscribe</h6>
+                    <p>Do not want to miss our newsletter?</p>
+                    <form class="m-b-lg">
+                        <input type="text" class="form-control" placeholder="Your email">
+                        <button type="submit" class="btn btn-sm btn-outline b-dark rounded m-t">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="b b-b m-b m-t-lg"></div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <a href="#"="#" class="text-muted text-sm">Cookies</a>
+                </div>
+                <div class="col-sm-4">
+                    <div class="text-sm-right text-xs-left">
+                        <small class="text-muted">&copy;
+    Copyright. All rights reserved.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="m-a-a" class="modal fade animate" data-backdrop="true">
+  <div class="modal-dialog" id="animate">
+    <div class="modal-content">
+      <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        <h5 class="modal-title">Attention!</h5>
+
+      </div>
+      <div class="modal-body text-center p-lg">
+        <%= if notice then  content_tag(:p, notice) else '' end %>
+        <%= if alert then  content_tag(:p, alert) else '' end %>
+        <%= yield :devise_error %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn success p-x-md" data-dismiss="modal">Ok</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+  <!-- / -->
+
+<!-- ############ LAYOUT END-->
+  </div>
+<script type="text/javascript">
+    $(document).ready(function(){
+  $('.owl-carousel').owlCarousel(
+    {
+    items: 1
+            , loop: true
+            , autoplay: true
+            , nav: true
+            , autoplayHoverPause: true
+});
+});
+  </script>
+  <% if notice or alert or content_for?(:devise_error) %>
+  <script type="text/javascript">
+      $('#m-a-a').modal()
+  </script>
+  <% end %>
+</body>
+</html>

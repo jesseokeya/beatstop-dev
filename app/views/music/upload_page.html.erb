@@ -1,0 +1,62 @@
+<h1> Upload Your Beats </h1>
+<div class="b-t">
+  <div class="center-block w-auto-xs p-y-md text-center">
+    <div class="p-a-md">
+    <%= form_for(@music, url: '/music/create', html: { multipart: true }, turboboost: true) do |f| %>
+    <%=content_for :devise_error  do %>
+      <% @music.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+  <% end %>
+<div class="col-md-6">
+  <div class="form-group">
+    <%= f.hidden_field :artist_id, value: current_user.artist.id%>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Name of Beat/Song", required: true %>
+  </div>
+
+    <div class="form-group">
+    <select onchange="test(this)" id="select_id" class="form-control m-b" name="music[for_sale]">
+      <option value= "false">For Sale?</option>
+    	<option value="true">Yes</option>
+    	<option value="false">No</option>
+    </select>
+  </div>
+  <div id = "salePrice" style="display: None" class="form-group input-group">
+  <span class="input-group-addon">$</span>
+    <%= f.number_field :price, class:"form-control", placeholder: "Sale Price", id: "price"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_area :description, placeholder: "Tell us more about beat or song; like what inspired you?", size: "6x4", class: "form-control"%>
+  </div>
+  </div>
+  <div class="col-md-6">
+<div class="form-group">
+
+  <h5><label for="file">Upload Cover Art</label></h5>
+      <%= f.file_field :cover_art, id: "file", class: "filestyle", data:{classButton: "btn-success", classInput: "form-control inline v-middle input-s"}%>
+      </div>
+      <div class="form-group">
+  <h5><label for="beat">Upload Music</label></h5>
+      <%= f.file_field :beat, id: "beat", class: "filestyle", data:{classButton: "btn-success",classInput: "form-control inline v-middle input-s"}%>
+      </div>
+    </div>
+
+	  <%= f.submit "Submit", class: "btn btn-lg black p-x-lg btn-block"%>
+<% end %>
+  </div>
+</div>
+
+<script>
+function test(a) {
+  var x = a.value;  //crossbrowser solution =)
+  if(x == "true"){
+    document.getElementById('salePrice').style.display = '';
+    //alert(x);
+  }else{document.getElementById('salePrice').style.display = 'None';}
+
+}
+</script>

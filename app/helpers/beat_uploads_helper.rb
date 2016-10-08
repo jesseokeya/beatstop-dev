@@ -1,0 +1,2 @@
+module BeatUploadsHelper
+end

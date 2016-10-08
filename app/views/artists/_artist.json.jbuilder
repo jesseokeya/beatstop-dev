@@ -1,0 +1,2 @@
+json.extract! artist, :id, :user_id, :first_name, :last_name, :stage_name, :talent, :bio, :page_views, :account_balance, :followers, :following, :paypal_email, :stripe_id, :fb_link, :twitter, :soundclound, :created_at, :updated_at
+json.url artist_url(artist, format: :json)

@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Artists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Stage name</th>
+      <th>Talent</th>
+      <th>Bio</th>
+      <th>Page views</th>
+      <th>Account balance</th>
+      <th>Followers</th>
+      <th>Following</th>
+      <th>Paypal email</th>
+      <th>Stripe</th>
+      <th>Fb link</th>
+      <th>Twitter</th>
+      <th>Soundclound</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @artists.each do |artist| %>
+      <tr>
+        <td><%= artist.user %></td>
+        <td><%= artist.first_name %></td>
+        <td><%= artist.last_name %></td>
+        <td><%= artist.stage_name %></td>
+        <td><%= artist.talent %></td>
+        <td><%= artist.bio %></td>
+        <td><%= artist.page_views %></td>
+        <td><%= artist.account_balance %></td>
+        <td><%= artist.followers %></td>
+        <td><%= artist.following %></td>
+        <td><%= artist.paypal_email %></td>
+        <td><%= artist.stripe_id %></td>
+        <td><%= artist.fb_link %></td>
+        <td><%= artist.twitter %></td>
+        <td><%= artist.soundclound %></td>
+        <td><%= link_to 'Show', artist %></td>
+        <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
+        <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Artist', new_artist_path %>

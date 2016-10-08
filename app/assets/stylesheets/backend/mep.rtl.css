@@ -1,0 +1,72 @@
+.mejs-layers{
+	left: auto;
+	right: 0;
+}
+.mejs-layers .mejs-track-artwork{
+	float: right;
+}
+.mejs-layers .mejs-track-actions{
+	float: left;
+}
+.mejs-layers .mejs-track-details{
+	text-align: right;
+}
+.mejs-error{
+	left: auto;
+	right: 10px;
+}
+.mejs-error:after{
+	left: auto;
+	right: 15px;
+}
+.mejs-controls .mejs-toggle-playlist-button{
+	left: 0;
+	right: auto;
+}
+.mejs-controls .mejs-volume-button{
+	left: 40px;
+	right: auto;
+}
+.mejs-controls .mejs-time{
+	left: 90px;
+	right: auto;
+}
+.mejs-controls div.mejs-time-rail{
+	left: 0;
+	right: 55px;
+}
+.playlist .tracks{
+	left: 0;
+	right: auto;
+}
+.playlist .tracks .track{
+	padding-right: 40px;
+	padding-left: 4px;
+}
+.playlist .tracks .track:before{
+	left: auto;
+	right: 0
+}
+.playlist .tracks .track-action{
+	float: left;
+}
+.playlist .tracks .track-title{
+	float: right;
+	margin-left: 10px;
+}
+
+@media (max-width: 767px) {
+  .mejs-controls div.mejs-next-button{
+  	right: auto;
+  	left: 20px;
+  }
+  .mejs-controls div.mejs-playpause-button{
+  	right: auto;
+  	left: 100px;
+  }
+  .playlist .mejs-layers{
+  	width:  auto;
+  	right: 0;
+  	left: 120px;
+  }
+}

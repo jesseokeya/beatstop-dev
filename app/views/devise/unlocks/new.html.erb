@@ -1,0 +1,26 @@
+ <div class="b-t">
+    <div class="center-block w-xxl w-auto-xs p-y-md text-center">
+      <div class="p-a-md">
+        <div>
+          <h4>Resend unlock instructions</h4>
+          <p class="text-muted m-y">
+            Enter your email below and we will send you instructions on how to change your password.
+          </p>
+        </div>
+<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+  <%=content_for :devise_error do %>
+  	<%= devise_error_messages! %>
+	<% end%>
+          <div class="form-group">
+          <%= f.email_field :email, autofocus: true, placeholder: true, class: "form-control", required: true %>
+          </div>
+              <%= f.submit "Send", class: "btn black btn-block p-x-md"%>
+              <% end %>
+
+        <div class="p-y-lg">
+          Return to 
+          <a href="/sign_in" class="text-primary _600">Sign in</a>
+        </div> 
+      </div>
+    </div>
+  </div>
